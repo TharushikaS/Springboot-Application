@@ -1,4 +1,4 @@
-package dev.danvega.runnerz.run;
+package com.example.runnerz.run;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
