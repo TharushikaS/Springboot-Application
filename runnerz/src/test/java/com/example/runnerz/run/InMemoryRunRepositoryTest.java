@@ -1,7 +1,4 @@
-package dev.danvega.runnerz.run;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package com.example.runnerz.run;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -9,6 +6,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class InMemoryRunRepositoryTest {
 
