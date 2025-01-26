@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Running App</h1>
+            <p>Track and manage your running activities effortlessly</p>
+        </header>
+
+        <!-- Button to open the "Create Run" form -->
+        <button id="createRunBtn" class="btn main-btn">Create New Run</button>
+
+        <!-- Create/Edit Run Form -->
+        <div id="formContainer" class="form-container">
+            <form id="runForm">
+                <h2>Create/Edit Run</h2>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="miles">Miles:</label>
+                <input type="number" id="miles" name="miles" required>
+
+                <label for="duration">Duration:</label>
+                <input type="text" id="duration" name="duration" required>
+
+                <label for="avgPace">Average Pace:</label>
+                <input type="number" id="avgPace" name="avgPace" required>
+
+                <button type="submit" id="submitBtn" class="btn submit-btn">Submit</button>
+            </form>
+            <button id="cancelBtn" class="btn cancel-btn">Cancel</button>
+        </div>
+
+        <section id="runs">
+            <!-- Loading indicator -->
+            <div id="loading" class="loading">Loading runs...</div>
+
+            <!-- List of runs will be displayed here -->
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
