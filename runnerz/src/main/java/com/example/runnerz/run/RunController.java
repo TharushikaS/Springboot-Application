@@ -1,12 +1,22 @@
 package com.example.runnerz.run;
 
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/runs")
@@ -26,7 +36,7 @@ class RunController {
     @GetMapping("/{id}")
     Run findById(@PathVariable Integer id) {
         Optional<Run> run = runRepository.findById(id);
-        if(run.isEmpty()) {
+        if (run.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Run not found.");
         }
         return run.get();
@@ -41,7 +51,7 @@ class RunController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@Valid @RequestBody Run run, @PathVariable Integer id) {
-        runRepository.update(run,id);
+        runRepository.update(run, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -50,6 +60,13 @@ class RunController {
         runRepository.delete(id);
     }
 
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to the Home Page!";
+}
+
+
+    @GetMapping("/location")
     List<Run> findByLocation(@RequestParam String location) {
         return runRepository.findByLocation(location);
     }
